@@ -1,0 +1,62 @@
+header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1.8px gray solid;
+}
+
+header .imgLogo {
+  height: 120%;
+  width: auto;
+  object-fit: cover;
+}
+header input {
+  width: 50%;
+  height: 120%;
+  border-radius: 20px;
+  padding-left: 20px;
+}
+header input::placeholder {
+  padding: 20px;
+}
+
+header select {
+  width: 10%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 600;
+}
+header select option {
+  font-weight: 500;
+}
+
+header #searchBtn {
+  font-weight: bold;
+  color: #fff;
+  background-color: #3e3e3e;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 10%;
+  height: 110%;
+  box-sizing: border-box;
+}
+
+header #searchBtn:hover {
+  background-color: #0056b3;
+}
+
+header #searchBtn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+header #searchBtn:active {
+  background-color: #004494;
+}
