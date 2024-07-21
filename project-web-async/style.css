@@ -20,3 +20,18 @@ main {
   width: 100%;
   min-height: 80vh;
 }
+
+main h2 {
+  color: #666;
+  font-size: 1.5em;
+  margin: 20px;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.no-display {
+  display: none;
+}

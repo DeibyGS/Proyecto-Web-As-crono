@@ -16,23 +16,46 @@ init();
 
 const getPhotos = async (keyword,photoNum,photoOrientation,photoRelevant) =>{
 
-  const data = await fetch(`https://api.unsplash.com/search/collections?per_page=${photoNum}&query=${keyword}&orientation=${photoOrientation}&order_by=${photoRelevant}&client_id=${import.meta.env.VITE_CLIENT_ID}`);
-  const dataJSON = await data.json();
-  const photos = dataJSON.results;
-  printPhotos(photos);
+  try {
+    const data = await fetch(`https://api.unsplash.com/search/photos?per_page=${photoNum}&query=${keyword}&orientation=${photoOrientation}&order_by=${photoRelevant}&client_id=${import.meta.env.VITE_CLIENT_ID}`);
+    const dataJSON = await data.json();
+    const photos = dataJSON.results;
+    console.log(photos);
+    printPhotos(photos);
+  } catch (error) {
+    console.error('Error al obtener las fotos:', error);
+    
+  }
 
 };
 
 const printPhotos = (photos) =>{
+  
   const container = document.querySelector("#gallery");
-  container.innerHTML = "";
-  for (const photo of photos) {
-    const li = document.createElement("li");
-    li.innerHTML = `
-    <img class="photoGallery" src="${photo.cover_photo.urls.regular}" alt="${photo.cover_photo.alt_description}"/>
-    `
-    container.appendChild(li);
+  const message = document.querySelector("#message");
+  
+  
+  if(photos.length === 0){
+    siDisplay();
+    container.innerHTML = "";
+    message.textContent = "No se encontraron resultados, por favor inicia una nueva búsqueda...";
+  }else{
+    noDisplay();
+
+    container.innerHTML = "";
+    message.textContent = "";
+
+    for (const photo of photos) {
+      const li = document.createElement("li");
+      li.innerHTML = `
+      <a href="${photo.links.download}" target="_blank">
+      <img class="photoGallery" src="${photo.urls.regular}" alt="${photo.alt_description}"/>
+      </a>
+      `
+      container.appendChild(li);
+    }
   }
+  
  
 }
 
@@ -46,4 +69,17 @@ document.querySelector("#searchBtn").addEventListener("click", () =>{
   document.querySelector("#searchInput").value = "";
 
 })
-getPhotos("Moon","20","squarish","relevant");
+getPhotos("Moon","10","landscape","relevant");
+
+
+const noDisplay = () =>{
+  const noDpl = document.querySelector("#message");
+  noDpl.classList.add("no-display");
+  
+}
+
+const siDisplay = () =>{
+  const siDpl = document.querySelector("#message");
+  siDpl.classList.remove("no-display");
+  
+}

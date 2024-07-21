@@ -2,6 +2,7 @@ import "./Main.css"
 
 const template = () =>
     `
+<h2 id="message" class="hidden"></h2>
 <ul id="gallery"></ul>
 
 `
