@@ -8,9 +8,7 @@ const init = () =>{
 Header();
 Main();
 Footer();
-
-
-}
+};
 
 init();
 
