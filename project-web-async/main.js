@@ -70,8 +70,7 @@ document.querySelector("#searchBtn").addEventListener("click", () =>{
   const photoRelevantValueValue = document.querySelector("#relevantInput").value;
   currentPage = 1;
   getPhotos(keywordValue,photoNumValue,photoOrientationValue,photoRelevantValueValue,currentPage);
-  //document.querySelector("#searchInput").value = "";
-
+  
 })
 
 

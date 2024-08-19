@@ -1,11 +1,15 @@
-import "./Footer.css"
+    import "./Footer.css"
 
-const template = ()=>`
-    <p>Unsplash - 2024</p>
+    const template = ()=>`
+        <p>Unsplash - 2024</p>
 
-`
+    `
+    
+    const Footer = () =>{
+        const footerElement = document.createElement("footer");
+        footerElement.innerHTML = template();
+        document.body.appendChild(footerElement);
+        
+    }
 
-const Footer = () =>{
-    document.querySelector("footer").innerHTML = template();}
-
-export default Footer;
+    export default Footer;
